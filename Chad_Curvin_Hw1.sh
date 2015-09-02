@@ -29,15 +29,22 @@ This script can do three (3) things: \n
 \t 1. Check to see if the user is the root user \n
 \t 2. Check to see if the script is running on Linux OS \n
 \t 3. Check to see if the -w argument was given \n
-\n
-What would you like to do? (1,2,3): '
+'
+printf 'What would you like to do? (1,2,3): '
 
 # Read in from user input
 read OPT
 
 case $OPT in
 	1)
-	  echo "You are not the root user, exiting."
+		case $UID in
+			0) 
+	  			echo "Ah, greetings Master Root. Welcome to the party. I shall exit now."
+	   		;;
+			*)
+	  			echo "You are not the root user, exiting."
+			;;
+	  	esac 
 	  ;;
 	2)
 	  echo "This script is running on Linux."
