@@ -9,19 +9,12 @@
 # 3 - Work with a -w flag, optionally followed by a second parameter that is then repeated 3 times if provided. Example is if the script is run: './task1.sh -w mytest' then print mytest 3 times on same line.
 # And a fourth requirement, outside the menu loop, is to supply a help text that describes command line usage.
 
-# Example menu from homework doc:
-# hvalle@icarus:~$ ./hugoValle_hw1.sh
-# This script can do three things:
-# 1. Check to see if the user is the root user
-# 2. Check to see if the script is running on Linux OS
-# 3. Check to see if the -w argument was given
-# What would you like to do? (1, 2, 3):
-
 # Help info
 # Usage ./hugoValle_hw1.sh [--help] [-w ]
 # --help Print this help message
 # -w Print name three times
 # With no arguments it provides a menu to test the system
+######## End Description ############
 
 # Set variables
 userOS=`uname -s`
@@ -51,12 +44,15 @@ case $OPT in
 	;;
 	2)
 		if [[ $userOS != 'Linux' ]]
-		then echo "JOIN THE DARKSIDE,"$USER"!! We are more powerful than you could ever imagine!"
-		else echo "This script is running on Linux."
+			then echo "JOIN THE DARKSIDE,"$USER"!! We are more powerful than you could ever imagine!"
+			else echo "This script is running on Linux."
 		fi
 	;;
 	3)
-	  echo $2 $2 $2
-	  ;;
+		if [[ $1 != '-w' ]]
+			then echo "Maybe you meant to add the -w argument?"
+			else echo "$2 $2 $2"
+		fi
+	;;
 esac
 
