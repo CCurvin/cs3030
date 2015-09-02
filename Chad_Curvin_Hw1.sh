@@ -23,3 +23,27 @@
 # -w Print name three times
 # With no arguments it provides a menu to test the system
 
+# Explain the menu options
+printf '\n
+This script can do three (3) things: \n
+\t 1. Check to see if the user is the root user \n
+\t 2. Check to see if the script is running on Linux OS \n
+\t 3. Check to see if the -w argument was given \n
+\n
+What would you like to do? (1,2,3): '
+
+# Read in from user input
+read OPT
+
+case $OPT in
+	1)
+	  echo "You are not the root user, exiting."
+	  ;;
+	2)
+	  echo "This script is running on Linux."
+	  ;;
+	3)
+	  echo $2 $2 $2
+	  ;;
+esac
+
