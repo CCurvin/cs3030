@@ -23,6 +23,9 @@
 # -w Print name three times
 # With no arguments it provides a menu to test the system
 
+# Set variables
+userOS=`uname -s`
+
 # Explain the menu options
 printf '\n
 This script can do three (3) things: \n
@@ -45,10 +48,13 @@ case $OPT in
 	  			echo "You are not the root user, exiting."
 			;;
 	  	esac 
-	  ;;
+	;;
 	2)
-	  echo "This script is running on Linux."
-	  ;;
+		if [[ $userOS != 'Linux' ]]
+		then echo "JOIN THE DARKSIDE,"$USER"!! We are more powerful than you could ever imagine!"
+		else echo "This script is running on Linux."
+		fi
+	;;
 	3)
 	  echo $2 $2 $2
 	  ;;
