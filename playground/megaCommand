@@ -1,0 +1,1 @@
+grep MA newlist.csv | sed -f address.sed | awk -F, '{print }'
