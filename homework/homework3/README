@@ -1,0 +1,8 @@
+The Chad_Curvin_hw3.sh shell script takes 3 files as input:
+* A sed source file that uses sed to change the date from / to . separated
+* An awk source file that filters only those presidents who have served
+	since 1900 AND that outputs only those columns requested
+* A csv input file (provided)
+
+The input files can be in any order but must follow the usage guidelines
+To view the usage call the shell script with the --help option.
